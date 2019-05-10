@@ -15,14 +15,30 @@ export default class CardBack extends Component {
   }
 
   render() {
+    if(this.props.IMDBRating != null){
     return (
       <div className="card-back">
         <h3 className="title"></h3>
         <span />
-        { /* your rating element should go here -- you can invoke methods within JSX, à la: this.myMethod() */ }
+          {this.props.title}
+          {this.props.genres.join(", ")}
+          <img src={this.props.IMDBRating} alt="" />
         <span />
         <h5 className="genres"></h5>
       </div>
     )
+  } else {
+    return (
+      <div className="card-back">
+        <h3 className="title"></h3>
+        <span />
+          {this.props.title}
+          {this.props.genres.join(", ")}
+          <h4>no rating found</h4>
+        <span />
+        <h5 className="genres"></h5>
+      </div>
+    )
+  }
   }
 }
